@@ -1,7 +1,11 @@
 # Ahrefs CLI
 
-> A glorious, AI agent-first command-line interface for the Ahrefs API v3.
+> AI agent-first command-line interface for the Ahrefs API v3.
 
+[![Tests](https://github.com/amine/ahrefs-cli/actions/workflows/test.yml/badge.svg)](https://github.com/amine/ahrefs-cli/actions/workflows/test.yml)
+[![golangci-lint](https://github.com/amine/ahrefs-cli/actions/workflows/golangci-lint.yml/badge.svg)](https://github.com/amine/ahrefs-cli/actions/workflows/golangci-lint.yml)
+[![codecov](https://codecov.io/gh/amine/ahrefs-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/amine/ahrefs-cli)
+[![Go Report Card](https://goreportcard.com/badge/github.com/amine/ahrefs-cli)](https://goreportcard.com/report/github.com/amine/ahrefs-cli)
 [![Go Version](https://img.shields.io/badge/Go-1.25%2B-00ADD8?style=flat&logo=go)](https://go.dev/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
