@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
-	"github.com/amine/ahrefs-cli/cmd"
-	"github.com/amine/ahrefs-cli/cmd/config"
-	"github.com/amine/ahrefs-cli/cmd/siteexplorer"
+	"github.com/aminemat/ahrefs-cli/cmd"
+	"github.com/aminemat/ahrefs-cli/cmd/config"
+	"github.com/aminemat/ahrefs-cli/cmd/siteexplorer"
 )
 
 func main() {

@@ -2,10 +2,10 @@
 
 > AI agent-first command-line interface for the Ahrefs API v3.
 
-[![Tests](https://github.com/amine/ahrefs-cli/actions/workflows/test.yml/badge.svg)](https://github.com/amine/ahrefs-cli/actions/workflows/test.yml)
-[![golangci-lint](https://github.com/amine/ahrefs-cli/actions/workflows/golangci-lint.yml/badge.svg)](https://github.com/amine/ahrefs-cli/actions/workflows/golangci-lint.yml)
-[![codecov](https://codecov.io/gh/amine/ahrefs-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/amine/ahrefs-cli)
-[![Go Report Card](https://goreportcard.com/badge/github.com/amine/ahrefs-cli)](https://goreportcard.com/report/github.com/amine/ahrefs-cli)
+[![Tests](https://github.com/aminemat/ahrefs-cli/actions/workflows/test.yml/badge.svg)](https://github.com/aminemat/ahrefs-cli/actions/workflows/test.yml)
+[![golangci-lint](https://github.com/aminemat/ahrefs-cli/actions/workflows/golangci-lint.yml/badge.svg)](https://github.com/aminemat/ahrefs-cli/actions/workflows/golangci-lint.yml)
+[![codecov](https://codecov.io/gh/aminemat/ahrefs-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/aminemat/ahrefs-cli)
+[![Go Report Card](https://goreportcard.com/badge/github.com/aminemat/ahrefs-cli)](https://goreportcard.com/report/github.com/aminemat/ahrefs-cli)
 [![Go Version](https://img.shields.io/badge/Go-1.25%2B-00ADD8?style=flat&logo=go)](https://go.dev/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -34,10 +34,10 @@ This CLI was built with **one primary mission**: make the Ahrefs API maximally d
 
 ```bash
 # Install with Go
-go install github.com/amine/ahrefs-cli@latest
+go install github.com/aminemat/ahrefs-cli@latest
 
 # Or clone and build
-git clone https://github.com/amine/ahrefs-cli
+git clone https://github.com/aminemat/ahrefs-cli
 cd ahrefs-cli
 make build
 ```
@@ -366,9 +366,9 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 💬 Support
 
-- 🐛 **Bug reports:** [Open an issue](https://github.com/amine/ahrefs-cli/issues)
-- 💡 **Feature requests:** [Open an issue](https://github.com/amine/ahrefs-cli/issues)
-- 💬 **Questions:** [Start a discussion](https://github.com/amine/ahrefs-cli/discussions)
+- 🐛 **Bug reports:** [Open an issue](https://github.com/aminemat/ahrefs-cli/issues)
+- 💡 **Feature requests:** [Open an issue](https://github.com/aminemat/ahrefs-cli/issues)
+- 💬 **Questions:** [Start a discussion](https://github.com/aminemat/ahrefs-cli/discussions)
 
 ---
 
@@ -376,6 +376,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 **Built with ❤️ for AI agents and humans alike**
 
-Made by [amine](https://github.com/amine) • [Star this repo](https://github.com/amine/ahrefs-cli) if you find it useful!
+Made by [amine](https://github.com/amine) • [Star this repo](https://github.com/aminemat/ahrefs-cli) if you find it useful!
 
 </div>

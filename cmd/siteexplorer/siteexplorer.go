@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/amine/ahrefs-cli/cmd"
-	"github.com/amine/ahrefs-cli/internal/config"
-	"github.com/amine/ahrefs-cli/pkg/client"
-	"github.com/amine/ahrefs-cli/pkg/models"
-	"github.com/amine/ahrefs-cli/pkg/output"
+	"github.com/aminemat/ahrefs-cli/cmd"
+	"github.com/aminemat/ahrefs-cli/internal/config"
+	"github.com/aminemat/ahrefs-cli/pkg/client"
+	"github.com/aminemat/ahrefs-cli/pkg/models"
+	"github.com/aminemat/ahrefs-cli/pkg/output"
 	"github.com/spf13/cobra"
 )
 

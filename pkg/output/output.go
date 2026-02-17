@@ -10,7 +10,7 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/amine/ahrefs-cli/pkg/client"
+	"github.com/aminemat/ahrefs-cli/pkg/client"
 )
 
 // Format represents an output format type

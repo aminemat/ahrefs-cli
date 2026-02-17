@@ -1,4 +1,4 @@
-module github.com/amine/ahrefs-cli
+module github.com/aminemat/ahrefs-cli
 
 go 1.25.1
 

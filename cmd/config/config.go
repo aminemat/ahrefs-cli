@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 
-	"github.com/amine/ahrefs-cli/internal/config"
+	"github.com/aminemat/ahrefs-cli/internal/config"
 	"github.com/spf13/cobra"
 )
 
