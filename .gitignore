@@ -1,0 +1,38 @@
+# Binaries
+ahrefs
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+coverage.out
+*.out
+
+# Go workspace file
+go.work
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config (contains API keys)
+.ahrefsrc
+
+# Build artifacts
+dist/
+build/
+
+# Internal docs (not for public repo)
+RELEASE_CHECKLIST.md
