@@ -27,6 +27,16 @@ referring domains, anchors, organic keywords, and more.`,
 	cmd.AddCommand(newDomainRatingCmd())
 	cmd.AddCommand(newBacklinksCmd())
 	cmd.AddCommand(newBacklinksStatsCmd())
+	cmd.AddCommand(newRefDomainsCmd())
+	cmd.AddCommand(newAnchorsCmd())
+	cmd.AddCommand(newOrganicKeywordsCmd())
+	cmd.AddCommand(newTopPagesCmd())
+	cmd.AddCommand(newBrokenBacklinksCmd())
+	cmd.AddCommand(newLinkedDomainsCmd())
+	cmd.AddCommand(newMetricsCmd())
+	cmd.AddCommand(newMetricsHistoryCmd())
+	cmd.AddCommand(newPagesByTrafficCmd())
+	cmd.AddCommand(newBestByLinksCmd())
 
 	return cmd
 }
@@ -297,6 +307,112 @@ func runBacklinks(target, mode string, limit, offset int, sel, where string) err
 	}
 
 	var result models.BacklinksResponse
+	if err := json.Unmarshal(resp.Body, &result); err != nil {
+		return fmt.Errorf("failed to parse response: %w", err)
+	}
+
+	w, err := output.NewWriter(flags.OutputFormat, flags.OutputFile)
+	if err != nil {
+		return err
+	}
+	defer w.Close()
+
+	return w.WriteSuccess(result, &resp.Meta)
+}
+
+func newRefDomainsCmd() *cobra.Command {
+	var (
+		target  string
+		mode    string
+		limit   int
+		offset  int
+		sel     string
+		where   string
+		orderBy string
+	)
+
+	cmd := &cobra.Command{
+		Use:   "refdomains",
+		Short: "Get referring domains",
+		Long:  "List referring domains that contain backlinks to the target.",
+		Example: `  # Get referring domains for a domain
+  ahrefs site-explorer refdomains --target example.com --limit 100
+
+  # Get specific fields
+  ahrefs site-explorer refdomains --target example.com \
+    --select domain,domain_rating,backlinks --limit 50
+
+  # Filter and sort by domain rating
+  ahrefs site-explorer refdomains --target example.com \
+    --where 'domain_rating>50' --order-by domain_rating:desc --limit 100`,
+		RunE: func(cobraCmd *cobra.Command, args []string) error {
+			return runRefDomains(target, mode, limit, offset, sel, where, orderBy)
+		},
+	}
+
+	cmd.Flags().StringVar(&target, "target", "", "Target domain or URL (required)")
+	cmd.Flags().StringVar(&mode, "mode", "domain", "Mode: exact, domain, prefix, subdomains")
+	cmd.Flags().IntVar(&limit, "limit", 100, "Maximum number of results")
+	cmd.Flags().IntVar(&offset, "offset", 0, "Offset for pagination")
+	cmd.Flags().StringVar(&sel, "select", "", "Comma-separated list of fields to return")
+	cmd.Flags().StringVar(&where, "where", "", "Filter expression (Ahrefs filter syntax)")
+	cmd.Flags().StringVar(&orderBy, "order-by", "", "Sort order (e.g., domain_rating:desc)")
+
+	cmd.MarkFlagRequired("target")
+
+	return cmd
+}
+
+func runRefDomains(target, mode string, limit, offset int, sel, where, orderBy string) error {
+	flags := cmd.GetGlobalFlags()
+
+	apiKey := flags.APIKey
+	if apiKey == "" {
+		apiKey = config.GetAPIKey()
+	}
+	if apiKey == "" {
+		return fmt.Errorf("API key required")
+	}
+
+	c := client.NewClient(client.Config{
+		APIKey: apiKey,
+	})
+
+	params := url.Values{}
+	params.Set("target", target)
+	params.Set("mode", mode)
+	params.Set("limit", fmt.Sprintf("%d", limit))
+	if offset > 0 {
+		params.Set("offset", fmt.Sprintf("%d", offset))
+	}
+	if sel != "" {
+		params.Set("select", sel)
+	}
+	if where != "" {
+		params.Set("where", where)
+	}
+	if orderBy != "" {
+		params.Set("order_by", orderBy)
+	}
+
+	if flags.DryRun {
+		fmt.Printf("✓ Valid request. Would call: GET %s/site-explorer/refdomains?%s\n",
+			client.BaseURL, params.Encode())
+		return nil
+	}
+
+	if flags.Verbose {
+		fmt.Printf("Requesting: GET /site-explorer/refdomains?%s\n", params.Encode())
+	}
+
+	resp, err := c.Get(context.Background(), "/site-explorer/refdomains", params)
+	if err != nil {
+		w, _ := output.NewWriter(flags.OutputFormat, flags.OutputFile)
+		w.WriteError(err)
+		return err
+	}
+
+	var result models.RefDomainsResponse
 	if err := json.Unmarshal(resp.Body, &result); err != nil {
 		return fmt.Errorf("failed to parse response: %w", err)
 	}
